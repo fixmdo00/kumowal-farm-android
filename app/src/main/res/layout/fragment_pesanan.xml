@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryBackground"
+    tools:context=".PesananFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bat_logo"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:background="@color/primaryBackground">
+
+            <LinearLayout
+                android:id="@+id/topBtn1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:background="@color/white">
+                <TextView
+                    android:id="@+id/topBtn1Tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Menunggu Konfirmasi"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/topBtn2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/topBtn2Tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Menunggu Dikirimkan"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/topBtn3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/topBtn3Tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Dalam Pengiriman"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/topBtn4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/topBtn4Tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Selesai"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="3dp"
+            android:paddingTop="10dp"
+            android:background="@color/white">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RVPesanan"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvPesananKosong"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Tidak ada pesanan"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="@color/grey"
+        android:visibility="invisible"/>
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+</FrameLayout>

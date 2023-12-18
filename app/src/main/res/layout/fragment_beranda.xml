@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BerandaFragment">
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bat_logo"
+                android:layout_margin="5dp"
+                />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical">
+
+                 <androidx.constraintlayout.widget.ConstraintLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="200dp"
+                     android:orientation="horizontal"
+                     android:layout_marginTop="20dp"
+                     android:layout_marginStart="10dp"
+                     android:layout_marginEnd="10dp"
+                     android:background="@drawable/card_shape">
+
+                     <com.google.android.material.imageview.ShapeableImageView
+                         android:id="@+id/shapeableImageViewBabi"
+                         android:layout_width="match_parent"
+                         android:layout_height="150dp"
+                         android:scaleType="centerCrop"
+                         android:src="@drawable/babi"
+                         app:layout_constraintTop_toTopOf="parent"
+                         app:shapeAppearanceOverlay="@style/cornerImageView" />
+
+                     <TextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:gravity="bottom|start"
+                         android:paddingHorizontal="15dp"
+                         android:text="Babi"
+                         android:textColor="#4A432D"
+                         android:textSize="28sp"
+                         android:textStyle="bold"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintTop_toBottomOf="@+id/shapeableImageViewBabi" />
+
+                     <Button
+                         android:id="@+id/btnBeliBabi"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:textColorHint="@color/black"
+                         android:hint="Beli"
+                         android:layout_margin="15dp"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintEnd_toEndOf="parent" />
+
+                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 <androidx.constraintlayout.widget.ConstraintLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="200dp"
+                     android:orientation="horizontal"
+                     android:layout_marginTop="10dp"
+                     android:layout_marginStart="10dp"
+                     android:layout_marginEnd="10dp"
+                     android:background="@drawable/card_shape">
+
+                     <com.google.android.material.imageview.ShapeableImageView
+                         android:id="@+id/shapeableImageViewAyam"
+                         android:layout_width="match_parent"
+                         android:layout_height="150dp"
+                         android:scaleType="centerCrop"
+                         android:src="@drawable/ayam"
+                         app:layout_constraintTop_toTopOf="parent"
+                         app:shapeAppearanceOverlay="@style/cornerImageView" />
+                     <TextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:gravity="bottom|start"
+                         android:paddingHorizontal="15dp"
+                         android:text="Ayam"
+                         android:textColor="#4A432D"
+                         android:textSize="28sp"
+                         android:textStyle="bold"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintTop_toBottomOf="@+id/shapeableImageViewAyam" />
+
+                     <Button
+                         android:id="@+id/btnBeliAyam"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:textColorHint="@color/black"
+                         android:hint="Beli"
+                         android:layout_margin="15dp"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintEnd_toEndOf="parent" />
+                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                 <androidx.constraintlayout.widget.ConstraintLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="200dp"
+                     android:orientation="horizontal"
+                     android:layout_marginVertical="10dp"
+                     android:layout_marginStart="10dp"
+                     android:layout_marginEnd="10dp"
+                     android:background="@drawable/card_shape">
+
+                     <com.google.android.material.imageview.ShapeableImageView
+                         android:id="@+id/shapeableImageViewTelur"
+                         android:layout_width="match_parent"
+                         android:layout_height="150dp"
+                         android:scaleType="centerCrop"
+                         android:src="@drawable/telur_ayam"
+                         app:layout_constraintTop_toTopOf="parent"
+                         app:shapeAppearanceOverlay="@style/cornerImageView" />
+
+                     <TextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:gravity="bottom|start"
+                         android:paddingHorizontal="15dp"
+                         android:text="Telur Ayam"
+                         android:textColor="#4A432D"
+                         android:textSize="28sp"
+                         android:textStyle="bold"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintTop_toBottomOf="@+id/shapeableImageViewTelur" />
+
+                     <Button
+                         android:id="@+id/btnBeliTelur"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:textColorHint="@color/black"
+                         android:hint="Beli"
+                         android:layout_margin="15dp"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintEnd_toEndOf="parent" />
+                 </androidx.constraintlayout.widget.ConstraintLayout>
+             </LinearLayout>
+        </ScrollView>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>

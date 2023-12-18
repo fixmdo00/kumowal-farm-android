@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Kumowal Farm</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="jenis_potongan">
+        <item>Daging</item>
+    </string-array>
+    <string-array name="berat_ayam">
+        <item>1.5 – 2 KG</item>
+        <item>2 – 2.5 KG</item>
+        <item>2.5 – 3 KG</item>
+        <item>3 – 3.5 KG</item>
+    </string-array>
+</resources>

@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BAT" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">#FFBD00</item>
+        <item name="colorSecondaryContainer">#FFBD00</item>
+    </style>
+    <style name="Theme.BAT" parent="Base.Theme.BAT" />
+
+    <style name="White.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/white</item>
+        <item name="cornerRadius">0dp</item>
+    </style>
+
+    <style name="Primary.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+    <style name="Primary.Rounded.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="cornerRadius">4dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="Primary.Border.Button" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="backgroundTint">@color/white</item>
+        <item name="cornerRadius">4dp</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+    </style>
+
+
+
+</resources>

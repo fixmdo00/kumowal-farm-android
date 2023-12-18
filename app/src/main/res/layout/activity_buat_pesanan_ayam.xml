@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryBackground"
+    tools:context=".BuatPesananTelurActivity">
+    <LinearLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnKembali"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="10dp"
+            android:src="@drawable/icon_kembali" />
+
+        <TextView
+            android:id="@+id/tvKategori"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Buat Pesanan Ayam"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/topbarLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingHorizontal="5dp"
+                android:paddingBottom="10dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/card_shape">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/shapeableImageViewAyam"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ayam"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/cornerImageView" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom|start"
+                        android:paddingHorizontal="15dp"
+                        android:text="Ayam"
+                        android:textColor="#4A432D"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/shapeableImageViewAyam" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Detail Pesanan"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Ukuran"
+                    android:visibility="gone"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    app:hintEnabled="false"
+                    android:visibility="gone"
+                    >
+
+                    <AutoCompleteTextView
+                        android:id="@+id/itBeratAyam"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="none"
+                        android:textSize="14sp"
+                        android:background="@color/white"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Jumlah (Ekor)" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CustomTextInputEditTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        app:hintEnabled="false"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/itEkor"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:hint="Contoh : 10"
+                            android:inputType="number"
+                            android:imeOptions="actionDone"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Ekor"
+                        android:layout_marginHorizontal="5dp"
+                        android:gravity="center"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvHarga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Harga per Ekor : "
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvTotalHarga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Total harga : "
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Detail Pengiriman"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Nama Penanggungjawab" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CustomTextInputEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        app:hintEnabled="false"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/itNama"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:inputType="text"
+                            android:hint="Contoh : Brilly"
+                            android:imeOptions="actionDone"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Alamat Tujuan" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tvJenisAlamat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/grey"
+                    android:text="Alamat Utama" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tvAlamat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/grey"
+                    android:text="JL. Walanda Maramis Madidir Weru Ling I, Pakadoodan, Kec. Maesa, Kota Bitung, Sulawesi Utara 95514" />
+
+                <Button
+                    android:visibility="gone"
+                    android:id="@+id/btnUbahAlamat"
+                    style="@style/Primary.Border.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:hint="Pilih Alamat Lain"
+                    android:textColorHint="@color/colorPrimary"
+                    />
+
+                <TextView
+                    android:id="@+id/tvOngkirPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ongkir 15.000"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+
+            <Button
+                style="@style/Primary.Button"
+                android:id="@+id/btnBeli"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Buat Pesanan"
+                android:textColorHint="@color/primaryBackground"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/topbarLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D3D3D3"
+        app:layout_constraintTop_toBottomOf="@+id/topbar"
+        android:orientation="horizontal" />
+
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
