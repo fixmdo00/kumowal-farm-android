@@ -124,7 +124,7 @@ class BuatPesananAyamActivity : AppCompatActivity() {
             if (binding.itNama.text.isNullOrBlank() && binding.itEkor.text.isNullOrBlank()){
                 Toast.makeText(this, "Masukkan data yang lengkap", Toast.LENGTH_LONG).show()
             } else {
-                buatPesanan(binding.itEkor.text.toString(), binding.itNama.text.toString(), idAlamat)
+                buatPesanan(binding.itEkor.text.toString(), binding.itNama.text.toString(), idAlamat, binding.itHargaTawaran.text.toString())
             }
         }
 
@@ -161,7 +161,7 @@ class BuatPesananAyamActivity : AppCompatActivity() {
         RQ.getRQ().add(stringRequest)
     }
 
-    private fun buatPesanan(ekor: String, namaPj: String, idAlamat: String) {
+    private fun buatPesanan(ekor: String, namaPj: String, idAlamat: String, hargaTawaran : String) {
         val url = "https://kumowal.my.id/api/pesanan_buat.php"
         binding.loadingProgressBar.visibility = View.VISIBLE
         val postData = HashMap<String, String>()
@@ -171,6 +171,7 @@ class BuatPesananAyamActivity : AppCompatActivity() {
         postData.put("id_alamat", idAlamat)
         postData.put("userId",Pengguna.id.toString())
         postData.put("harga",hargaAyam.toString())
+        postData.put("harga_tawaran",hargaTawaran )
 
         val stringRequest = object : StringRequest(
             Method.POST,

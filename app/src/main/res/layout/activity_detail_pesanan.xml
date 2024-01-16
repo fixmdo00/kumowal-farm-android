@@ -179,6 +179,28 @@
                         android:textStyle="bold"
                         android:text="Rp 450.000" />
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/containerHargaPenwaran"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Harga penawaran pembeli" />
+                    <TextView
+                        android:id="@+id/tvHargaPenawaran"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:textStyle="bold"
+                        android:text="Rp 450.000" />
+                </LinearLayout>
+
 
             </LinearLayout>
             <LinearLayout

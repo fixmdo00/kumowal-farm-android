@@ -20,6 +20,9 @@ object StatusPesanan {
             "4" -> {
                 status = "Selesai"
             }
+            "0" -> {
+                status = "Dibatalkan"
+            }
         }
         return status
     }

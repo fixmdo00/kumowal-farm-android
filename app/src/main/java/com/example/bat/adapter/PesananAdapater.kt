@@ -42,7 +42,12 @@ class PesananAdapater (private val productList:ArrayList<PesananData>, val lifec
         holder.tvJumlahProduk.text = currentItem.jumlah_produk.toString() + " " + satuan
         holder.tvStatus.text = StatusPesanan.getStatus(currentItem.status)
 
-        val totalHargaPesanan = "Rp " + NumberFormat.getNumberInstance(Locale.getDefault()).format(currentItem.harga_satuan * currentItem.jumlah_produk)
+        val totalHargaPesanan: String
+        if (currentItem.penawaran_harga != 0){
+            totalHargaPesanan = "Rp " + NumberFormat.getNumberInstance(Locale.getDefault()).format(currentItem.penawaran_harga)
+        } else {
+            totalHargaPesanan = "Rp " + NumberFormat.getNumberInstance(Locale.getDefault()).format(currentItem.harga_satuan * currentItem.jumlah_produk)
+        }
         holder.tvTotalHarga.text = totalHargaPesanan
         holder.btnLihatDetail.setOnClickListener {
             val intent = Intent(context, DetailPesananActivity::class.java)

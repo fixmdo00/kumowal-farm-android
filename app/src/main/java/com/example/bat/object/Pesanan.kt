@@ -94,7 +94,8 @@ object Pesanan {
                         item.getString("kecamatan"),
                         item.getString("kelurahan"),
                         item.getString("jalan"),
-                        item.getString("jenis")
+                        item.getString("jenis"),
+                        item.getString("harga_tawaran").toInt()
                     )
                 )
             }
@@ -126,7 +127,8 @@ object Pesanan {
                             item.getString("kecamatan"),
                             item.getString("kelurahan"),
                             item.getString("jalan"),
-                            item.getString("jenis")
+                            item.getString("jenis"),
+                            item.getString("harga_tawaran").toInt()
                         )
                     )
                 }
@@ -159,7 +161,8 @@ object Pesanan {
                             item.getString("kecamatan"),
                             item.getString("kelurahan"),
                             item.getString("jalan"),
-                            item.getString("jenis")
+                            item.getString("jenis"),
+                            item.getString("harga_tawaran").toInt()
                         )
                 }
             }

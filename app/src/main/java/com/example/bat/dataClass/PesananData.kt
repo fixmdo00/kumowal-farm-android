@@ -14,5 +14,6 @@ data class PesananData(
     var pengiriman_kecamatan : String,
     var pengiriman_kelurahan : String,
     var pengiriman_jalan : String,
-    var pengiriman_jenis : String
+    var pengiriman_jenis : String,
+    var penawaran_harga : Int
 )

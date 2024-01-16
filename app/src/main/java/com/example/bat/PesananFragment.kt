@@ -79,6 +79,7 @@ class PesananFragment : Fragment() {
             unselect(binding.topBtn2, binding.topBtn2Tv)
             unselect(binding.topBtn3, binding.topBtn3Tv)
             unselect(binding.topBtn4, binding.topBtn4Tv)
+            unselect(binding.topBtn5, binding.topBtn5Tv)
         }
 
         binding.topBtn1.setOnClickListener {
@@ -93,6 +94,7 @@ class PesananFragment : Fragment() {
             unselect(binding.topBtn2, binding.topBtn2Tv)
             unselect(binding.topBtn3, binding.topBtn3Tv)
             unselect(binding.topBtn4, binding.topBtn4Tv)
+            unselect(binding.topBtn5, binding.topBtn5Tv)
 
         }
         binding.topBtn2.setOnClickListener {
@@ -107,6 +109,7 @@ class PesananFragment : Fragment() {
             select(binding.topBtn2, binding.topBtn2Tv)
             unselect(binding.topBtn3, binding.topBtn3Tv)
             unselect(binding.topBtn4, binding.topBtn4Tv)
+            unselect(binding.topBtn5, binding.topBtn5Tv)
 
 
         }
@@ -122,6 +125,7 @@ class PesananFragment : Fragment() {
             unselect(binding.topBtn2, binding.topBtn2Tv)
             select(binding.topBtn3, binding.topBtn3Tv)
             unselect(binding.topBtn4, binding.topBtn4Tv)
+            unselect(binding.topBtn5, binding.topBtn5Tv)
 
         }
         binding.topBtn4.setOnClickListener {
@@ -136,6 +140,22 @@ class PesananFragment : Fragment() {
             unselect(binding.topBtn2, binding.topBtn2Tv)
             unselect(binding.topBtn3, binding.topBtn3Tv)
             select(binding.topBtn4, binding.topBtn4Tv)
+            unselect(binding.topBtn5, binding.topBtn5Tv)
+        }
+
+        binding.topBtn5.setOnClickListener {
+            pesananAdapter.list = Pesanan.getPesananArrayListByStatus("0")
+            if(pesananAdapter.list.size == 0){
+                binding.tvPesananKosong.visibility = View.VISIBLE
+            } else {
+                binding.tvPesananKosong.visibility = View.INVISIBLE
+            }
+            pesananAdapter.notifyDataSetChanged()
+            unselect(binding.topBtn1,binding.topBtn1Tv)
+            unselect(binding.topBtn2, binding.topBtn2Tv)
+            unselect(binding.topBtn3, binding.topBtn3Tv)
+            unselect(binding.topBtn4, binding.topBtn4Tv)
+            select(binding.topBtn5, binding.topBtn5Tv)
         }
 
         binding.swipeRefreshLayout.setOnRefreshListener {

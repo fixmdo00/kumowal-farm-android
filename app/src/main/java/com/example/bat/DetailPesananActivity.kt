@@ -28,6 +28,14 @@ class DetailPesananActivity : AppCompatActivity() {
         val alamat_pengiriman = detail_pesanan.pengiriman_jalan + ", " + detail_pesanan.pengiriman_kelurahan + ", " + detail_pesanan.pengiriman_kecamatan + ", " + detail_pesanan.pengiriman_kabupaten + ", " + detail_pesanan.pengiriman_provinsi
         val banyaknya_produk = detail_pesanan.jumlah_produk.toString() + " " + SatuanProduk.getSatuan(detail_pesanan.jenis_produk)
         val total_harga = "Rp " + NumberFormat.getNumberInstance(Locale.getDefault()).format(detail_pesanan.harga_satuan * detail_pesanan.jumlah_produk)
+        when(detail_pesanan.penawaran_harga){
+            0 -> {
+                binding.containerHargaPenwaran.visibility = View.GONE
+            }
+            else -> {
+                binding.tvHargaPenawaran.text = "Rp " + NumberFormat.getNumberInstance(Locale.getDefault()).format(detail_pesanan.penawaran_harga)
+            }
+        }
         binding.tvStatus.text = StatusPesanan.getStatus(detail_pesanan.status)
         binding.tvAlamatPengiriman.text = alamat_pengiriman
         binding.tvJenisAlamatPengiriman.text = detail_pesanan.pengiriman_jenis
@@ -67,6 +75,9 @@ class DetailPesananActivity : AppCompatActivity() {
                 }
             }
             "4" -> {
+                binding.containerBtn.visibility = View.GONE
+            }
+            "0" -> {
                 binding.containerBtn.visibility = View.GONE
             }
         }
