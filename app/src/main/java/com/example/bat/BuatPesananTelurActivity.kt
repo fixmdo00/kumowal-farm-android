@@ -1,5 +1,6 @@
 package com.example.bat
 
+import android.R
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.android.volley.Request
@@ -26,6 +28,10 @@ class BuatPesananTelurActivity : AppCompatActivity() {
     lateinit var binding : ActivityBuatPesananTelurBinding
     var hargaAyam = 0
     var totalHarga = 0
+    var diskon5 = 0
+    var diskon10 = 0
+    val diskonList = ArrayList<String>()
+    var selectedDiskon = 0
     lateinit var jenisBeratAyam : String
     lateinit var berat : String
     lateinit var namaPj : String
@@ -36,6 +42,14 @@ class BuatPesananTelurActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBuatPesananTelurBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val spinnerDiskon = binding.spinnerDiskon
+        val adapterDiskon = ArrayAdapter(this, R.layout.simple_spinner_item, diskonList)
+        adapterDiskon.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+        spinnerDiskon.adapter =adapterDiskon
+
+        diskonList.add("Belum dipilih")
+        adapterDiskon.notifyDataSetChanged()
 
         ambilHargaTelur(){
             when (it){
@@ -53,7 +67,19 @@ class BuatPesananTelurActivity : AppCompatActivity() {
                     binding.tvTotalHarga.text = "Total harga : Rp 0"
                 } else {
                     totalHarga = hargaAyam * binding.itButir.text.toString().toInt()
+                    diskon5 = (totalHarga * 0.95).toInt()
+                    diskon10 = (totalHarga * 0.90).toInt()
+                    diskonList.clear()
+                    diskonList.add("Belum dipilih")
+                    diskonList.add("Diskon 5%, jadi Rp. " + NumberFormat.getNumberInstance(Locale.getDefault())
+                        .format(diskon5))
+                    diskonList.add("Diskon 10%, jadi Rp. " + NumberFormat.getNumberInstance(Locale.getDefault())
+                        .format(diskon10))
+                    adapterDiskon.notifyDataSetChanged()
                     binding.tvTotalHarga.text =
+                        "Total harga : Rp " + NumberFormat.getNumberInstance(Locale.getDefault())
+                            .format(totalHarga)
+                    binding.tvSubtotaltotal.text =
                         "Total harga : Rp " + NumberFormat.getNumberInstance(Locale.getDefault())
                             .format(totalHarga)
                     return@setOnEditorActionListener false
@@ -67,11 +93,24 @@ class BuatPesananTelurActivity : AppCompatActivity() {
                 // Memastikan hanya ketika terjadi perubahan teks dan teks bukan kosong
                 if (!s.isNullOrBlank()) {
                     totalHarga = hargaAyam * binding.itButir.text.toString().toInt()
+                    diskon5 = (totalHarga * 0.95).toInt()
+                    diskon10 = (totalHarga * 0.90).toInt()
+                    diskonList.clear()
+                    diskonList.add("Belum dipilih")
+                    diskonList.add("Diskon 5%, jadi Rp. " + NumberFormat.getNumberInstance(Locale.getDefault())
+                        .format(diskon5))
+                    diskonList.add("Diskon 10%, jadi Rp. " + NumberFormat.getNumberInstance(Locale.getDefault())
+                        .format(diskon10))
+                    adapterDiskon.notifyDataSetChanged()
                     binding.tvTotalHarga.text =
+                        "Total harga : Rp " + NumberFormat.getNumberInstance(Locale.getDefault())
+                            .format(totalHarga)
+                    binding.tvSubtotaltotal.text =
                         "Total harga : Rp " + NumberFormat.getNumberInstance(Locale.getDefault())
                             .format(totalHarga)
                 } else {
                     binding.tvTotalHarga.text = "Total harga : Rp 0"
+                    binding.tvSubtotaltotal.text = "Total harga : Rp 0"
                 }
             }
 
@@ -83,6 +122,41 @@ class BuatPesananTelurActivity : AppCompatActivity() {
                 // Method kosong yang diperlukan oleh interface
             }
         })
+
+        spinnerDiskon.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                Log.d("spinner parent",parent.toString())
+                Log.d("spinner view",view.toString())
+                Log.d("spinner pos",position.toString())
+                Log.d("spinner id",id.toString())
+                when (position){
+                    1 -> {
+                        selectedDiskon = (totalHarga * 0.95).toInt()
+                        binding.tvSubtotaltotal.text =
+                            "Total harga : Rp " + NumberFormat.getNumberInstance(Locale.getDefault())
+                                .format(selectedDiskon)
+                    }
+                    2 -> {
+                        selectedDiskon = (totalHarga * 0.90).toInt()
+                        binding.tvSubtotaltotal.text =
+                            "Total harga : Rp " + NumberFormat.getNumberInstance(Locale.getDefault())
+                                .format(selectedDiskon)
+                    }
+                    0 -> {
+                        selectedDiskon = 0
+                        binding.tvSubtotaltotal.text =
+                            "Total harga : Rp " + NumberFormat.getNumberInstance(Locale.getDefault())
+                                .format(totalHarga)
+                    }
+                }
+
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
 
         if(!intent.getStringExtra("idAlamat").isNullOrBlank()){
             ambilDataAlamat(intent.getStringExtra("idAlamat")){
@@ -122,10 +196,13 @@ class BuatPesananTelurActivity : AppCompatActivity() {
 //        END SELECTOR BERAT AYAM
 
         binding.btnBeli.setOnClickListener {
-            if (binding.itNama.text.isNullOrBlank() && binding.itButir.text.isNullOrBlank()){
+            if (binding.itNama.text.isNullOrBlank() || binding.itButir.text.isNullOrBlank()){
                 Toast.makeText(this, "Masukkan data yang lengkap", Toast.LENGTH_LONG).show()
             } else {
-                buatPesanan(binding.itButir.text.toString(), binding.itNama.text.toString(), idAlamat, binding.itHargaTawaran.text.toString())
+                buatPesanan(
+                    binding.itButir.text.toString(),
+                    binding.itNama.text.toString(),
+                    idAlamat, selectedDiskon.toString())
             }
         }
 

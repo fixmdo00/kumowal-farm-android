@@ -28,13 +28,23 @@ class TambahAlamatActivity : AppCompatActivity() {
         binding.itJalan.setText(Pengguna.jalanAlamatPengiriman)
 
         binding.btnSimpan.setOnClickListener {
-            ubahAlamat(
-                binding.itProvinsi.text.toString(),
-                binding.itKabupaten.text.toString(),
-                binding.itKecamatan.text.toString(),
-                binding.itKelurahan.text.toString(),
-                binding.itJalan.text.toString()
-            )
+            if(
+                binding.itProvinsi.text.toString().isBlank() ||
+                binding.itKabupaten.text.toString().isBlank() ||
+                binding.itKecamatan.text.toString().isBlank() ||
+                binding.itKelurahan.text.toString().isBlank() ||
+                binding.itJalan.text.toString().isBlank()
+            ) {
+                Toast.makeText(this,"Data tidak lengkap", Toast.LENGTH_LONG).show()
+            } else {
+                ubahAlamat(
+                    binding.itProvinsi.text.toString(),
+                    binding.itKabupaten.text.toString(),
+                    binding.itKecamatan.text.toString(),
+                    binding.itKelurahan.text.toString(),
+                    binding.itJalan.text.toString()
+                )
+            }
         }
 
         binding.btnKembali.setOnClickListener {
