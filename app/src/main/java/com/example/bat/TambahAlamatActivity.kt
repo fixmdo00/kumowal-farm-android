@@ -50,7 +50,6 @@ class TambahAlamatActivity : AppCompatActivity() {
         binding.btnKembali.setOnClickListener {
             onBackPressed()
         }
-
     }
 
     private fun ubahAlamat(provinsi: String, kabupaten: String, kecamatan: String, kelurahan: String, jalan: String) {
